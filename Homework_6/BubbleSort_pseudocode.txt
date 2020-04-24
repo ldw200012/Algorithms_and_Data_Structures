@@ -1,0 +1,31 @@
+BubbleSort(A, p, q)
+	//p = first index of array A;
+	//q = last  index of array A;
+	WHILE q > 0								//until q == 1, which means the last comparison should be done between 0th and 1st elements
+		p = 0								//reset p to 0 before every iteration, cause we need to compare the values from the beginning
+		FOR (p ; p < q ; p++)				//until we reach the end of unsorted part (elements behind q must be sorted)
+			IF A[p] > A[p+1]				
+				exchange A[p] and A[p+1]	//swap two elements if they are in wrong order (if left one is larger than the right one)
+		q--
+
+Best Case: 
+int i;
+for(i = 0 ; i < n ; i++){
+	A[i] = i;
+}
+// We don't have to swap any pair of elements if they are all sorted from the beginning
+
+Worst Case:
+int i;
+for(i = 0 ; i < n ; i++){
+	A[i] = n-i-1;
+}
+// We need to swap every consecutive pair of elements at least once
+
+Random Case:
+int i;
+for(i = 0 ; i < n ; i++){
+	A[i] = rand() % n;
+}
+// If we simulate several cases with randomly generated arrays, we can measure the average (or
+// common) execution time of our algorithm
